@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Gabriel 💖</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #76d476, #d5b3d1);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            max-width: 420px;
+            transition: opacity 1s ease, transform 1s ease;
+            z-index: 2;
+        }
+
+        .card.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: #222;
+        }
+
+        h1 span {
+            color: #f4a6b7;
+        }
+
+        p {
+            color: #4f7f6a;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #f4a6b7;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(244,166,183,0.5);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f192a6;
+            transform: scale(1.05);
+        }
+
+        /* Pantalla de transición */
+        .transition {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #76d476, #d5b3d1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+            z-index: 1;
+        }
+
+        .transition.show {
+            opacity: 1;
+        }
+
+        .transition h2 {
+            color: white;
+            font-size: 2.5em;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="card">
+        <h1>Para ti Gabriel <span>💞</span></h1>
+        <p>💌 Mi niño de ojitos bonitos 💌</p>
+        <button onclick="abrirCorazon()">Haz clic aquí 💗</button>
+    </div>
+
+    <div class="transition" id="transition">
+        <h2>Te adoro… 💗</h2>
+    </div>
+
+    <script>
+        function abrirCorazon() {
+            const card = document.getElementById("card");
+            const transition = document.getElementById("transition");
+
+            card.classList.add("fade-out");
+
+            setTimeout(() => {
+                transition.classList.add("show");
+            }, 800);
+
+            setTimeout(() => {
+                window.open("corazon.html", "_blank", "width=800,height=600");
+            }, 2200);
+        }
+    </script>
+
+</body>
+</html>
+
